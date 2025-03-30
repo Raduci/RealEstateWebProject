@@ -1,0 +1,621 @@
+/* Coduri culori tematica site */
+:root {
+    --primary-color: #00032e;  /* Culoare principală */
+    --secondary-color: #edbf6d; /* Culoare secundară */
+    --hover-color: #03085a;  /* Culoare hover */
+    --text-color: #fff;  /* Culoare text */
+}
+
+/* Stil pentru logo */
+.logo-img {
+    width: 175px;  /* Setează lățimea logo-ului la 175px */
+    height: auto; /* Înălțimea se va ajusta automat */
+}
+
+/* Stiluri pentru Navbar */
+.navbar {
+    background-color: var(--primary-color); /* Culoarea principală */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Aliniere spațiată între logo și butoane */
+    align-items: center; /* Aliniere verticală pentru toate elementele */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Containerul pentru navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between; /* Împărțire spațiată între logo și meniul de navigare */
+    align-items: center; /* Aliniere verticală */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Meniul de navigare */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Distanța între linkuri */
+    margin: 0;
+}
+
+/* Linkurile din navbar */
+.navbar-links li {
+    display: inline-block;
+}
+
+/* Linkurile navbar pentru hover */
+.navbar-links a {
+    text-decoration: none;
+    color: var(--text-color); /* Culoare text linkuri */
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Stil pentru linkurile de hover */
+.navbar-links a:hover {
+    background-color: var(--hover-color); /* Culoarea de hover */
+    color: #fff;
+}
+
+/* Butoanele */
+.btn-login, .btn-add {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover pe butoane */
+.btn-login:hover, .btn-add:hover {
+    background-color: var(--hover-color); /* Culoarea de hover pentru butoane */
+    color: #03085a;
+}
+
+/* Asigurăm că meniul de navigare (linkuri) este lipit la dreapta */
+.navbar-container .navbar-links {
+    margin-left: auto; /* Aliniere la dreapta */
+}
+
+/* Alinierea corectă a elementelor */
+.navbar-container > .logo {
+    margin-right: auto; /* Asigură că logo-ul este lipit la stânga */
+}
+
+
+.navbar-container .navbar-links {
+    margin-left: auto; /* Asigură că meniul de butoane este lipit la dreapta */
+}
+
+/* Stil pentru butonul de închidere */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: var(--hover-color);
+    cursor: pointer;
+}
+
+/* Stil pentru butoanele din pop-up */
+.popup-content form {
+    margin-top: 20px;
+}
+
+/* Stil pentru formularul de login/register */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Buton de submit în formularul pop-up */
+form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--hover-color);
+}
+
+/* Alte stiluri pentru pop-up */
+.popup {
+    display: none; /* Inițial ascuns */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrare pe ecran */
+    width: 350px; /* Lățimea pop-up-ului */
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Asigură că pop-up-ul este deasupra celorlalte elemente */
+}
+
+/* Stil pentru butonul de închidere */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #03085a;
+    cursor: pointer;
+}
+
+/* Stil pentru formularul de login/register */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Buton de submit în formularul pop-up */
+form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--hover-color);
+}
+
+/* Buton de închidere */
+.popup .close-btn {
+    font-size: 24px;
+    color: #03085a;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Când pop-up-ul este activ */
+.popup.show {
+    display: flex; /* Afișează pop-up-ul când are clasa 'show' */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animație pentru pop-up */
+@keyframes slideDown {
+    0% {
+        transform: translate(-50%, -100%); /* Începe de sus, invizibil */
+    }
+    100% {
+        transform: translate(-50%, -50%); /* Ajunge în centrul ecranului */
+    }
+}
+
+/* Pop-up */
+.popup {
+    display: none; /* Inițial ascuns */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrăm pe ecran */
+    width: 340px; /* Lățimea pop-up-ului */
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Asigură că pop-up-ul este deasupra celorlalte elemente */
+    animation: slideDown 0.5s ease-out; /* Aplicăm animația la apariție */
+}
+
+/* Stil pentru butonul de închidere */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #03085a;
+    cursor: pointer;
+}
+
+/* Când pop-up-ul este activ */
+.popup.show {
+    display: flex; /* Afișează pop-up-ul când are clasa 'show' */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animație de flip pentru pop-up */
+@keyframes flipIn {
+    0% {
+        transform: rotateY(90deg); /* Începe cu pop-up-ul rotit pe axa Y */
+    }
+    100% {
+        transform: rotateY(0); /* Se rotește pentru a ajunge în poziția normală */
+    }
+}
+
+/* Animație de flip invers pentru revenirea la login */
+@keyframes flipOut {
+    0% {
+        transform: rotateY(0); /* Poziția normală */
+    }
+    100% {
+        transform: rotateY(90deg); /* Se rotește pentru a dispărea */
+    }
+}
+
+/* Pop-up-ul va avea ambele moduri de login și register */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d; /* Important pentru animația 3D */
+    transition: transform 0.6s ease;
+}
+
+/* Când pop-up-ul este în mod register */
+.popup-content.register {
+    animation: flipIn 0.6s ease-out; /* Aplica animația de flip */
+}
+
+/* Când pop-up-ul este în mod login */
+.popup-content.login {
+    animation: flipOut 0.6s ease-in; /* Aplica animația de flip invers */
+}
+
+/* Câmpurile de înregistrare */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-form input,
+.register-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.register-form button[type="submit"] {
+    background-color: #00032e;
+    color: white;
+    cursor: pointer;
+}
+
+.register-form button[type="submit"]:hover {
+    background-color: #03085a;
+}
+
+/* Stil pentru butonul Register */
+#register-btn {
+    background-color: #edbf6d;
+    color: #00032e;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#register-btn:hover {
+    background-color: #03085a;
+    color: white;
+}
+
+
+.footer {
+    background-color: #00032e;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #00032e;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00032e;
+}
+
+/* Adaugă un spațiu între header și footer */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    margin-top: 20px;  /* Spațiu între header și conținut */
+    margin-bottom: 20px;  /* Spațiu între conținut și footer */
+}
+
+/* Centrare text în secțiunea generală */
+section {
+    text-align: center; /* Centrează tot textul din secțiune */
+    padding: 50px 0; /* Poți ajusta padding-ul pentru a controla spațiul */
+}
+
+/* Dacă secțiunea are un fond, setează-l aici (dacă vrei) */
+section.hero {
+    background-color: transparent; /* Fundal transparent pentru secțiunea .hero */
+}
+
+section h2 {
+    font-size: 2.5em;
+    color: #03085a; /* Albastru pentru titlu */
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.2em;
+    color: #666; /* Culoare gri pentru text */
+    margin-bottom: 30px;
+}
+
+/* Pentru a centra butoanele */
+.cta-button {
+    display: inline-flex; /* Folosește inline-flex pentru a centra conținutul butonului */
+    justify-content: center; /* Centrează textul pe axa orizontală */
+    align-items: center; /* Centrează textul pe axa verticală */
+    padding: 12px 25px;
+    background-color: #03085a; /* Culoare albastră pentru buton */
+    color: white; /* Text alb pe buton */
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Culoare la hover pentru buton */
+.cta-button:hover {
+    background-color: #c1c1c1;
+    color: #03085a;
+}
+
+/* Asigură-te că fiecare carusel are aceeași structură */
+.carousel-container {
+    position: relative;
+    width: 80%; /* Ajustează lățimea după nevoie */
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: 0.5s;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Săgețile pentru fiecare carusel */
+button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #3a487f);
+}
+.container{
+    background: #fff;
+    width: 450px;
+    padding: 1.5rem;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0,0,1,0.9);
+}
+form{
+    margin: 0 2rem;
+}
+.form-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.3rem;
+    margin-bottom: 0.4rem;
+    color: #03085a;
+}
+input{
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #757575;
+    padding-left: 1.5rem;
+    font-size: 15px;
+}
+.input-group{
+    padding: 1% 0;
+    position: relative;
+}
+.input-group i{
+    position: absolute;
+    color: #03085a;
+}
+input:focus{
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 2px solid #03085a;
+}
+input::placeholder{
+    color: transparent;
+}
+label{
+    color: #757575;
+    position: relative;
+    left: 1.2em;
+    top: -1.3em;
+    cursor: auto;
+    transition: 0.3s ease all;
+}
+input:focus ~ label, input:not(:placeholder-shown) ~ label{
+    top: -3em;
+    color: #03085a;
+    font-size: 15px;
+}
+.recover{
+    text-align: right;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.recover a{
+    text-decoration: none;
+    color: #03085a;
+}
+.recover a:hover{
+    color: #02054a;
+    text-decoration: underline;
+}
+.btn{
+    font-size: 1.1rem;
+    padding: 8px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 100%;
+    background: #03085a;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover{
+    background: #02054a;
+}
+.or{
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.icons{
+    text-align: center;
+}
+.icons i{
+    color: #03085a;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+    margin: 0 15px;
+    transition: 0.5s;
+}
+.icons i:hover{
+    background: #02054a;
+    font-size: 1.6rem;
+    border: 2px solid #03085a;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4rem;
+    margin-top: 0.9rem;
+    font-weight: bold;
+}
+button{
+    color: #03085a;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+}
+button:hover{
+    text-decoration: underline;
+    color: #02054a;
+}
+
+
+
+
+
+
+
+
