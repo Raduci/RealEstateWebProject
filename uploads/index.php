@@ -1,11 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit(); // Oprește execuția codului pentru a preveni redirecționarea dublă
+}
+?>
+
+
 <?php include('../includes/header.php'); ?>
 
 <!-- Secțiunea Hero (introducere) -->
 <link rel="icon" href="public/img/logo.png" type="image/icon type">
 <title>Radu & Parteners | Home Page</title>
+<link rel="stylesheet" href="../public/style.css">
 <section class="hero">
     <div class="hero-content">
-        <h1>Bine ați venit pe Platforma Noastră Imobiliară</h1>
+        <h1>Bine ați venit pe cea mai populara platformă imobiliară din România</h1>
         <p>Găsește casa visurilor tale, fie că vrei să cumperi sau să închiriezi!</p>
         <a href="/proiect_imobiliare/oferte.php" class="cta-button">Vezi Ofertele Noastre</a>
     </div>
@@ -86,8 +96,5 @@
     </div>
 
 </section>
-
-
-
 
 <?php include('../includes/footer.php'); ?>

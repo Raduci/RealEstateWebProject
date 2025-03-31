@@ -1,13 +1,13 @@
 <?php
-session_start();
 require_once "database.php";
-
+session_start();
 if (isset($_SESSION["user"])) {
     header("Location: index.php");
     exit();
 }
 
 $error = "";
+$success = "";  // Inițializare mesaj de succes
 if (isset($_POST["login"])) {
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
@@ -24,6 +24,17 @@ if (isset($_POST["login"])) {
 
         if ($user && password_verify($password, $user["password"])) {
             $_SESSION["user"] = $user["id"];
+            $success = "<div class='alert alert-success'>Autentificare reușită!</div>"; // Mesaj de succes
+            if ($user && password_verify($password, $user["password"])) {
+                $_SESSION["user"] = $user["id"];
+
+                // Așteaptă 1 secundă înainte de redirecționare
+                sleep(1);
+
+                header("Location: index.php");
+                exit();
+            }
+
             header("Location: index.php");
             exit();
         } else {

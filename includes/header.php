@@ -1,5 +1,7 @@
 <?php
-// Poți adăuga aici orice logică PHP necesară (de exemplu, sesiuni sau variabile globale)
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -7,7 +9,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="public/img/logo.png" type="image/icon type">
-    <!-- Calea corectă către fișierul CSS -->
     <link rel="stylesheet" href="../public/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -25,8 +26,17 @@
             <ul>
                 <li><a href="/proiect_imobiliare/uploads/about.php">Despre Noi</a></li>
                 <li><a href="/proiect_imobiliare/uploads/recenzii.php">Recenzii</a></li>
-                <li><a href="/proiect_imobiliare/uploads/login.php" class="btn-login">Login/Register</a></li>
-                <li><a href="/proiect_imobiliare/uploads/oferte.php" class="btn-add">Adaugă Ofertă</a></li>
+
+                <?php if (isset($_SESSION["user"])): ?>
+                    <!-- Dacă utilizatorul este logat, afișează butonul de Logout -->
+                    <li><a href="/proiect_imobiliare/uploads/logout.php" class="btn-add">Logout</a></li>
+                    <li><a href="/proiect_imobiliare/uploads/oferte.php" class="btn-add">Adaugă Ofertă</a></li>
+                <?php else: ?>
+                    <!-- Dacă utilizatorul nu este logat, afișează butoanele de Login/Register -->
+                    <li><a href="/proiect_imobiliare/uploads/login.php" class="btn-login">Login</a></li>
+                <?php endif; ?>
+
+
             </ul>
         </div>
     </div>
