@@ -9,15 +9,16 @@ if (isset($_SESSION["user"])) {
 $error = "";
 $success = "";  // Inițializare mesaj de succes
 if (isset($_POST["login"])) {
-    $email = trim($_POST["email"]);
+    $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
-    if (empty($email) || empty($password)) {
+    if (empty($username) || empty($password)) {
         $error = "<div class='alert alert-danger'>Toate câmpurile sunt obligatorii!</div>";
     } else {
-        $sql = "SELECT * FROM users WHERE email = ?";
+        // Căutăm utilizatorul în baza de date pe baza username-ului
+        $sql = "SELECT * FROM users WHERE username = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $user = mysqli_fetch_assoc($result);
@@ -25,20 +26,15 @@ if (isset($_POST["login"])) {
         if ($user && password_verify($password, $user["password"])) {
             $_SESSION["user"] = $user["id"];
             $success = "<div class='alert alert-success'>Autentificare reușită!</div>"; // Mesaj de succes
-            if ($user && password_verify($password, $user["password"])) {
-                $_SESSION["user"] = $user["id"];
 
-                // Așteaptă 1 secundă înainte de redirecționare
-                sleep(1);
+            // Așteaptă 1 secundă înainte de redirecționare
+            sleep(1);
 
-                header("Location: index.php");
-                exit();
-            }
-
+            // Redirecționează la index.php după autentificare
             header("Location: index.php");
             exit();
         } else {
-            $error = "<div class='alert alert-danger'>Email sau parolă incorectă!</div>";
+            $error = "<div class='alert alert-danger'>Username sau parolă incorectă!</div>";
         }
     }
 }
@@ -63,7 +59,8 @@ if (isset($_POST["login"])) {
         <?php echo $error; ?>
         <form action="login.php" method="post">
             <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email:" required>
+                <!-- Am schimbat de la email la username -->
+                <input type="text" class="form-control" name="username" placeholder="Username:" required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Parolă:" required>
