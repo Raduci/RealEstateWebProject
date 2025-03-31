@@ -425,28 +425,21 @@ section p {
     color: #03085a;
 }
 
-/* Asigură-te că fiecare carusel are aceeași structură */
+/* Add this CSS to your stylesheet */
 .carousel-container {
-    position: relative;
-    width: 80%; /* Ajustează lățimea după nevoie */
-    margin: 20px auto;
     overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
 .carousel {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
     min-width: 100%;
-    transition: 0.5s;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+    box-sizing: border-box;
 }
 
 /* Săgețile pentru fiecare carusel */
