@@ -8,10 +8,18 @@ if (!isset($_SESSION['user'])) {
 
 <?php include('../includes/header.php'); ?>
 
-<link rel="icon" href="public/img/logo.png" type="image/icon type">
-<title>Radu & Parteners | Home Page</title>
-<link rel="stylesheet" href="../public/style.css">
-<script defer src="../public/carousel.js"></script>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../public/img/logo.png" type="image/icon type">
+    <title>Radu & Parteners | Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../public/style.css">
+    <script defer src="../public/carousel.js"></script>
+</head>
+<body>
 
 <section class="hero">
     <div class="hero-content">
@@ -30,37 +38,35 @@ if (!isset($_SESSION['user'])) {
 </section>
 
 <section class="popular-offers">
-    <h2>Oferte Populare</h2>
+    <h2 class="text-center my-4">Oferte Populare</h2>
 
-    <div class="carousel-container" id="carousel1">
-        <div class="carousel">
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte1/img1.jpg" alt="Offer 1-1"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte1/img2.jpg" alt="Offer 1-2"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte1/img3.jpg" alt="Offer 1-3"></div>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/img/oferta1/img3.jpeg" class="d-block w-100" alt="prima imagine">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/img/oferta1/img2.jpg" class="d-block w-100" alt="a doua">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/img/oferta1/img1.jpg" class="d-block w-100" alt="a treia">
+            </div>
         </div>
-        <button class="prev" onclick="moveSlide(-1, 'carousel1')">&#10094;</button>
-        <button class="next" onclick="moveSlide(1, 'carousel1')">&#10095;</button>
-    </div>
-
-    <div class="carousel-container" id="carousel2">
-        <div class="carousel">
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte2/img1.jpg" alt="Offer 2-1"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte2/img2.jpg" alt="Offer 2-2"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte2/img3.jpg" alt="Offer 2-3"></div>
-        </div>
-        <button class="prev" onclick="moveSlide(-1, 'carousel2')">&#10094;</button>
-        <button class="next" onclick="moveSlide(1, 'carousel2')">&#10095;</button>
-    </div>
-
-    <div class="carousel-container" id="carousel3">
-        <div class="carousel">
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte3/img1.jpg" alt="Offer 3-1"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte3/img2.jpg" alt="Offer 3-2"></div>
-            <div class="carousel-item"><img src="/proiect_imobiliare/img/oferte3/img3.jpg" alt="Offer 3-3"></div>
-        </div>
-        <button class="prev" onclick="moveSlide(-1, 'carousel3')">&#10094;</button>
-        <button class="next" onclick="moveSlide(1, 'carousel3')">&#10095;</button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </section>
+
+<!-- ✅ Bootstrap JS Bundle (with Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
 
 <?php include('../includes/footer.php'); ?>
