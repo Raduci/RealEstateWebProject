@@ -6,6 +6,13 @@
     --text-color: #fff;  /* Culoare text */
 }
 
+/* Stil about us */
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+
 /* Stil pentru logo */
 .logo-img {
     width: 175px;  /* Setează lățimea logo-ului la 175px */
