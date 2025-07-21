@@ -17,7 +17,6 @@ Acest proiect își propune să ofere o platformă online robustă și ușor de 
   * **Autentificare și Înregistrare:** Sistem de management al utilizatorilor (login, logout, înregistrare).
   * **Recenzii Utilizatori:** Posibilitatea utilizatorilor de a adăuga recenzii pentru servicii sau proprietăți.
   * **Formular de Contact/Rezervare:** Formular pentru solicitări de informații sau programări.
-  * **Administrare Oferte:** (Presupus, având `add.php`) Posibilitatea de a adăuga noi oferte.
   * **Bază de Date:** Stocarea datelor despre utilizatori, oferte și recenzii.
 
 ---
